@@ -6,8 +6,6 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Image from "next/image";
-import Tomatos from "../../../public/tomatos.jpg";
 
 const steps = [
   {
