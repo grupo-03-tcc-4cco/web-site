@@ -1,116 +1,68 @@
 "use client";
-import { Box } from "@mui/system";
-import { Button, Typography } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      light: "#212121",
-      main: "#212121",
-      dark: "#616161",
-      contrastText: "#fff",
-    },
-    secondary: {
-      light: "#ff7961",
-      main: "#f44336",
-      dark: "#ba000d",
-      contrastText: "#fff",
-    },
-  },
-});
+import { Typography } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import {
+  BlackBelt,
+  Container,
+  PageTexts,
+  PageTitle,
+  PageSubtitle,
+  GroupButtons,
+  Buttons,
+  theme,
+  AboutUsText,
+} from "./HomePage.styles";
 
 export default function HomePage() {
   return (
     <ThemeProvider theme={theme}>
-      <Box
-        sx={{
-          width: "100%",
-          height: "48px",
-          backgroundColor: "black",
-        }}
-      ></Box>
-      <Box
-        sx={{
-          width: "100%",
-          height: "90vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            variant="h1"
-            sx={{
-              fontWeight: 800,
-              fontSize: "100px",
-              letterSpacing: "-.05em",
-              lineHeight: 1,
-              textAlign: "center",
-            }}
-          >
-            Smart YouTube recommendations with AI
-          </Typography>
-          <Typography
-            mt={5}
-            variant="body1"
-            sx={{
-              maxWidth: 1250,
-              textAlign: "center",
-              fontSize: 18,
-              fontWeight: 400,
-              lineHeight: 1.6,
-              letterSpacing: "-.02em",
-              color: "#666",
-            }}
-          >
+      <BlackBelt />
+      <Container>
+        <PageTexts>
+          <PageTitle>Smart YouTube recommendations with AI</PageTitle>
+          <PageSubtitle variant="body1">
             TubeMind is a Machine Learning and Artificial Intelligence project
             that recommends personalized YouTube videos to users based on their
             interests. Our mission is to improve users&apos; viewing experience
             and provide an effective platform for content creators to reach
             their target audience.
-          </Typography>
-        </Box>
-        <Box
-          mt={5}
-          sx={{
-            width: "25%",
-            display: "flex",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <Button
-            sx={{
-              width: 300,
-              padding: ".5rem",
-              margin: ".5rem",
-            }}
-            variant="contained"
-          >
-            Learn more
-          </Button>
-          <Button
-            sx={{
-              width: 300,
-              padding: ".5rem",
-              margin: ".5rem",
-            }}
-            color="secondary"
-            variant="contained"
-          >
-            Documentation
-          </Button>
-        </Box>
-      </Box>
+          </PageSubtitle>
+        </PageTexts>
+        <GroupButtons>
+          <Buttons variant="contained">Participate</Buttons>
+          <Buttons color="secondary" variant="contained" href="#aboutus">
+            About us
+          </Buttons>
+        </GroupButtons>
+      </Container>
+      <Container id="aboutus">
+        <Typography variant="h2" component="h2" fontWeight={800}>
+          Welcome to TubeMind!
+        </Typography>
+        <AboutUsText>
+          <br />
+          <br /> TubeMind is a Machine Learning and Artificial Intelligence
+          project developed with the aim of recommending YouTube videos to
+          users, customizing the viewing experience according to their
+          interests.
+          <br />
+          <br /> Our goal is to provide a more satisfying user experience,
+          increasing user engagement and watch time, as well as providing a more
+          effective platform for content creators to reach their target
+          audience.
+          <br />
+          <br />
+          Utilizing advanced machine learning and AI techniques, TubeMind
+          analyzes YouTube user data and uses algorithms to predict which videos
+          will be most relevant and interesting for each user, continually
+          improving its recommendations based on your feedback and viewing
+          behavior.
+          <br />
+          <br />
+          Feel free to explore our site and find out how TubeMind can help you
+          find the most interesting and relevant YouTube videos!
+        </AboutUsText>
+      </Container>
     </ThemeProvider>
   );
 }
