@@ -3,9 +3,12 @@ import * as React from "react";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { Buttons, theme } from "../HomePage/HomePage.styles";
+import { ThemeProvider } from "@mui/system";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 
 const steps = [
   {
@@ -36,56 +39,58 @@ function StepByStep() {
   };
 
   return (
-    <Box
-      sx={{
-        margin: "20px 100px 0 100px",
-        height: "85vh",
-        // backgroundColor: "pink",
-      }}
-    >
-      <Stepper activeStep={activeStep} alternativeLabel>
-        {steps?.map((step, index) => (
-          <Step key={index}>
-            <StepLabel>Step {index + 1}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
+    <ThemeProvider theme={theme}>
       <Box
         sx={{
-          margin: "20px",
-          // backgroundColor: "green",
-          height: "80%",
+          margin: "20px 100px 0 100px",
+          height: "85vh",
         }}
       >
-        <Typography>{steps[activeStep].text}</Typography>
-      </Box>
-      <br />
-      <br />
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignSelf: "end",
-        }}
-      >
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => previousStep()}
-          disabled={activeStep === 0}
+        <Stepper activeStep={activeStep} alternativeLabel>
+          {steps?.map((step, index) => (
+            <Step key={index}>
+              <StepLabel>Step {index + 1}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        <Box
+          sx={{
+            margin: "20px",
+            height: "80%",
+          }}
         >
-          Previous
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => nextStep()}
-          disabled={activeStep === maxSteps - 1}
+          <Typography>{steps[activeStep].text}</Typography>
+        </Box>
+        <br />
+        <br />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignSelf: "end",
+          }}
         >
-          Next
-        </Button>
+          <Buttons
+            variant="contained"
+            color="primary"
+            onClick={() => previousStep()}
+            disabled={activeStep === 0}
+            startIcon={<KeyboardArrowLeftIcon />}
+          >
+            Previous
+          </Buttons>
+          <Buttons
+            variant="contained"
+            color="primary"
+            onClick={() => nextStep()}
+            disabled={activeStep === maxSteps - 1}
+            endIcon={<KeyboardArrowRightIcon />}
+          >
+            Next
+          </Buttons>
+        </Box>
       </Box>
-    </Box>
+    </ThemeProvider>
   );
 }
 

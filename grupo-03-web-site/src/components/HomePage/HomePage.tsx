@@ -29,7 +29,9 @@ export default function HomePage() {
           </PageSubtitle>
         </PageTexts>
         <GroupButtons>
-          <Buttons variant="contained">Participate</Buttons>
+          <Buttons variant="contained" href="participate">
+            Participate
+          </Buttons>
           <Buttons color="secondary" variant="contained" href="#aboutus">
             About us
           </Buttons>

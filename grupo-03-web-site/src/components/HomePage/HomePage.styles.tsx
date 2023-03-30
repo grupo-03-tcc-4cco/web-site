@@ -23,6 +23,8 @@ export const BlackBelt = styled(Box)({
   width: "100%",
   height: "48px",
   backgroundColor: "black",
+  position: "fixed",
+  zIndex: 1,
 });
 
 export const Container = styled(Box)({
@@ -68,7 +70,7 @@ export const GroupButtons = styled(Box)({
 });
 
 export const Buttons = styled(Button)({
-  width: 300,
+  width: 150,
   padding: ".5rem",
   margin: ".5rem",
 });
