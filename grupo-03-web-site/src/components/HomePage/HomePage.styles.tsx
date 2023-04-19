@@ -1,5 +1,6 @@
+import { Button, Grid, Typography } from "@mui/material";
 import { createTheme, styled } from "@mui/material/styles";
-import { Box, Button, Typography } from "@mui/material";
+import Image from "next/image";
 
 export const theme = createTheme({
   spacing: 4,
@@ -19,78 +20,84 @@ export const theme = createTheme({
   },
 });
 
-export const BlackBelt = styled(Box)({
-  width: "100%",
-  height: "48px",
-  backgroundColor: "black",
-  position: "fixed",
-  zIndex: 1,
-});
-
-export const Container = styled(Box)({
-  width: "100%",
-  height: "90vh",
+export const LeftGrid = styled(Grid)({
+  height: "100vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  flexDirection: "column",
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
 });
 
-export const PageTexts = styled(Box)({
+export const RightGrid = styled(Grid)({
+  height: "100vh",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  alignItems: "center",
+  [theme.breakpoints.down("md")]: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
-export const PageTitle = styled(Typography)({
-  fontWeight: 800,
-  fontSize: "100px",
-  letterSpacing: "-.05em",
-  lineHeight: 1,
-  textAlign: "center",
+export const HomeTitle = styled(Typography)({
+  maxWidth: 800,
+  fontWeight: 600,
+  fontSize: "62px",
+  marginBottom: theme.spacing(5.5),
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "55px",
+  },
+  [theme.breakpoints.down("md")]: {
+    maxWidth: 600,
+    textAlign: "center",
+  },
+  [theme.breakpoints.down("sm")]: {
+    textAlign: "left",
+  },
 });
 
-export const PageSubtitle = styled(Typography)({
-  maxWidth: 1250,
-  textAlign: "center",
-  fontSize: 18,
-  fontWeight: 400,
-  lineHeight: 1.6,
-  letterSpacing: "-.02em",
-  color: "#666",
-  marginTop: theme.spacing(5),
+export const HomeSubtitle = styled(Typography)({
+  maxWidth: 650,
+  fontSize: "20px",
+  marginBottom: theme.spacing(12),
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "20px",
+    maxWidth: 600,
+  },
+  [theme.breakpoints.down("md")]: {
+    textAlign: "center",
+  },
+  [theme.breakpoints.down("sm")]: {
+    textAlign: "left",
+  },
 });
 
-export const GroupButtons = styled(Box)({
-  width: "25%",
-  display: "flex",
-  justifyContent: "space-evenly",
-  marginTop: theme.spacing(5),
+export const LogoImage = styled(Image)({
+  width: 350,
+  height: 350,
+  [theme.breakpoints.down("lg")]: {
+    width: 300,
+    height: 300,
+  },
 });
 
 export const Buttons = styled(Button)({
-  width: 150,
-  padding: ".5rem",
-  margin: ".5rem",
-});
-
-export const AboutUsText = styled(Typography)({
-  fontSize: 18,
-  maxWidth: 1250,
-  fontWeight: 400,
-  lineHeight: 1.6,
-  letterSpacing: "-.02em",
+  width: 239,
+  height: 53,
+  margin: "0 1rem 0 0",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "12px",
+  },
 });
 
 export default {
-  BlackBelt,
-  Container,
-  PageTexts,
-  PageTitle,
-  PageSubtitle,
-  GroupButtons,
-  Buttons,
   theme,
-  AboutUsText,
+  LeftGrid,
+  RightGrid,
+  HomeTitle,
+  HomeSubtitle,
+  LogoImage,
+  Buttons,
 };
