@@ -1,27 +1,31 @@
-import { Box } from "@mui/material";
+import { Box, Typography, IconButton } from "@mui/material";
 import { createTheme, styled } from "@mui/material/styles";
 
-export const theme = createTheme({
-  palette: {
-    primary: {
-      light: "#212121",
-      main: "#212121",
-      dark: "#616161",
-      contrastText: "#fff",
-    },
-    secondary: {
-      light: "#ff7961",
-      main: "#f44336",
-      dark: "#ba000d",
-      contrastText: "#fff",
-    },
-  },
-});
+export const theme = createTheme();
 
 export const Container = styled(Box)({
-  height: "100vh",
+  height: "90vh",
+  width: "100%",
   display: "flex",
-  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "center",
+  position: "relative",
 });
 
-export default { Container };
+export const SectionTitle = styled(Typography)({
+  maxWidth: 1100,
+  marginBottom: theme.spacing(5),
+});
+
+export const SectionSubtitle = styled(Typography)({
+  maxWidth: 1100,
+  marginBottom: theme.spacing(10),
+});
+
+export const Back = styled(IconButton)({
+  position: "absolute",
+  top: "50px",
+  left: "200px",
+});
+
+export default { Container, SectionTitle, SectionSubtitle };
