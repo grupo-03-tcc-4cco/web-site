@@ -1,7 +1,7 @@
 import IconButton from "@mui/material/IconButton";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import team from "../../../public/data/AboutUs";
+import content from "../../../public/data/AboutUs";
 import {
   AvatarMui,
   Container,
@@ -20,7 +20,7 @@ function stringAvatar(name: string) {
 export default function Avatar() {
   return (
     <Section>
-      {team.map((person) => (
+      {content.team.map((person) => (
         <Container key={person.name}>
           <AvatarMui
             {...stringAvatar(`${person.name}`)}

@@ -2,6 +2,7 @@ import { Avatar, Box, Typography } from "@mui/material";
 import { createTheme, styled } from "@mui/material/styles";
 
 export const theme = createTheme({
+  spacing: 4,
   palette: {
     primary: {
       light: "#212121",
@@ -22,6 +23,7 @@ export const Section = styled(Box)({
   display: "flex",
   width: "50%",
   justifyContent: "space-between",
+  marginBottom: theme.spacing(20),
 });
 
 export const Container = styled(Box)({
