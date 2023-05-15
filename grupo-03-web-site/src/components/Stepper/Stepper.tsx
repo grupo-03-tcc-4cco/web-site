@@ -5,7 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { Back } from "../AboutUs/AboutUs.style";
@@ -55,48 +55,50 @@ export default function DotsMobileStepper() {
         </Typography>
         {/* </Box> */}
       </StepContent>
-      <Stepper
-        variant="dots"
-        steps={maxSteps}
-        activeStep={activeStep}
-        nextButton={
-          <Button
-            sx={{
-              marginLeft: 5,
-            }}
-            onClick={() => nextStep()}
-            disabled={activeStep === maxSteps - 1}
-          >
-            Next
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button
-            sx={{
-              marginRight: 5,
-            }}
-            onClick={() => previousStep()}
-            disabled={activeStep === 0}
-          >
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            Back
-          </Button>
-        }
-      />
-      <Link href="/formulario">
-        <ButtonFinish disabled={activeStep === maxSteps - 1 ? false : true}>
-          finalizar
-        </ButtonFinish>
-      </Link>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Stepper
+          variant="dots"
+          steps={maxSteps}
+          activeStep={activeStep}
+          nextButton={
+            <Button
+              sx={{
+                marginLeft: 5,
+              }}
+              onClick={() => nextStep()}
+              disabled={activeStep === maxSteps - 1}
+            >
+              Next
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowLeft />
+              ) : (
+                <KeyboardArrowRight />
+              )}
+            </Button>
+          }
+          backButton={
+            <Button
+              sx={{
+                marginRight: 5,
+              }}
+              onClick={() => previousStep()}
+              disabled={activeStep === 0}
+            >
+              {theme.direction === "rtl" ? (
+                <KeyboardArrowRight />
+              ) : (
+                <KeyboardArrowLeft />
+              )}
+              Back
+            </Button>
+          }
+        />
+        <Link href="/formulario">
+          <ButtonFinish disabled={activeStep === maxSteps - 1 ? false : true}>
+            finalizar
+          </ButtonFinish>
+        </Link>
+      </Box>
     </Section>
   );
 }
