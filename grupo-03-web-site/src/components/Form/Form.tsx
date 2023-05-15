@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import content from "../../../public/data/Form";
+import { uploadToS3 } from "../../api/BucketService"
 
 interface FormValues {
   email: string;
@@ -75,6 +76,13 @@ const Form = () => {
     console.log("File selected:", file);
     // Aqui você pode fazer algo com o arquivo, como enviar para um servidor
   };
+
+  const uploadFile = (file: File | null) => {
+    const reader = new FileReader();
+    reader.readAsText(file!, "utf-8");
+    const fileContent = reader.result?.toString()
+    uploadToS3(fileContent, file?.name)
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -182,7 +190,7 @@ const Form = () => {
           <p>Tamanho: {file.size} bytes</p>
         </div>
       )}
-      <button type="submit">Enviar</button>
+      <button onClick={() => uploadFile(file)}>Enviar</button>
     </form>
   );
 };
