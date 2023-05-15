@@ -1,6 +1,19 @@
 "use client";
 import { useState } from "react";
 import content from "../../../public/data/Form";
+import TextField from "@mui/material/TextField";
+import {
+  Button,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 
 interface FormValues {
   email: string;
@@ -21,11 +34,14 @@ const Form = () => {
     profession: "",
   });
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    setValues({ ...values, [name]: value });
+
+    if (name === "interests") {
+      setValues({ ...values, [name]: event.target.value.split(",") });
+    } else {
+      setValues({ ...values, [name]: value });
+    }
   };
 
   const handleInterestsChange = (
@@ -78,111 +94,127 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="email">E-mail:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        onChange={handleChange}
-        value={values.email}
-      />
+      <Grid container>
+        <Grid item xs={5} sx={{ padding: 3 }}>
+          <TextField
+            type="email"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            value={values.email}
+            label="E-mail"
+            sx={{ width: "80%", mb: 3 }}
+          />
 
-      <label htmlFor="age">Idade:</label>
-      <input
-        type="number"
-        id="age"
-        name="age"
-        onChange={handleChange}
-        value={values.age}
-      />
+          <TextField
+            type="number"
+            id="age"
+            name="age"
+            onChange={handleChange}
+            value={values.age}
+            label="idade"
+            sx={{ width: "38%", mb: 3, mr: 1 }}
+          />
 
-      <label htmlFor="gender">Sexo:</label>
-      <select
-        id="gender"
-        name="gender"
-        onChange={handleChange}
-        value={values.gender}
-      >
-        <option value="">Selecione</option>
-        {content.genderList.map((gender) => (
-          <option key={gender} value={gender}>
-            {gender}
-          </option>
-        ))}
-      </select>
+          <FormControl sx={{ width: "41%", mb: 3 }}>
+            <InputLabel id="input-gender">Sexo</InputLabel>
+            <Select
+              labelId="input-gender"
+              id="gender"
+              value={values.gender}
+              name="gender"
+              onChange={handleChange}
+            >
+              {content.genderList.map((gender) => (
+                <MenuItem key={gender} value={gender}>
+                  {gender}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
-      <label htmlFor="education">Nível de escolaridade:</label>
-      <select
-        id="education"
-        name="education"
-        onChange={handleChange}
-        value={values.education}
-      >
-        <option value="">Selecione</option>
-        {content.educationalLevel.map((education) => (
-          <option key={education} value={education}>
-            {education}
-          </option>
-        ))}
-      </select>
+          <FormControl sx={{ width: "38%", mb: 3, mr: 1 }}>
+            <InputLabel id="input-education">Nível de escolaridade</InputLabel>
+            <Select
+              labelId="input-education"
+              id="education"
+              value={values.education}
+              name="education"
+              onChange={handleChange}
+            >
+              {content.educationalLevel.map((education) => (
+                <MenuItem key={education} value={education}>
+                  {education}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
-      <fieldset>
-        <legend>Interesses:</legend>
-        {content.interestsList.map((interest) => (
-          <div key={interest}>
-            <input
-              type="checkbox"
-              id={interest}
-              name="interests"
-              value={interest}
-              onChange={handleInterestsChange}
-            />
-            <label htmlFor={interest}>{interest}</label>
-          </div>
-        ))}
-      </fieldset>
-
-      <label htmlFor="profession">Profissão:</label>
-      <select
-        id="profession"
-        name="profession"
-        onChange={handleChange}
-        value={values.profession}
-      >
-        <option value="">Selecione</option>
-        {content.professionsList.map((profession) => (
-          <option key={profession} value={profession}>
-            {profession}
-          </option>
-        ))}
-      </select>
-      <label htmlFor="file">
-        Arraste e solte o arquivo aqui ou selecione um arquivo:
-      </label>
-      <input
-        type="file"
-        id="file"
-        name="file"
-        accept="image/*" // aqui é possível definir o tipo de arquivo aceito pelo input
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onChange={handleFileChange}
-        style={{
-          width: "100%",
-          height: "100px",
-          border: "2px dashed gray",
-          borderRadius: "10px",
-          padding: "20px",
-        }}
-      />
-      {file && (
-        <div>
-          <p>Arquivo selecionado: {file.name}</p>
-          <p>Tamanho: {file.size} bytes</p>
-        </div>
-      )}
-      <button type="submit">Enviar</button>
+          <FormControl sx={{ width: "41%" }}>
+            <InputLabel id="input-profession">Profissão</InputLabel>
+            <Select
+              labelId="input-profession"
+              id="profession"
+              value={values.profession}
+              name="profession"
+              onChange={handleChange}
+            >
+              {content.professionsList.map((profession) => (
+                <MenuItem key={profession} value={profession}>
+                  {profession}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <input
+            type="file"
+            id="file"
+            name="file"
+            accept="image/*" // aqui é possível definir o tipo de arquivo aceito pelo input
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onChange={handleFileChange}
+            style={{
+              width: "500px",
+              height: "180px",
+              border: "2px dashed gray",
+              borderRadius: "10px",
+              padding: "20px",
+              marginBottom: "70px",
+            }}
+          />
+          {file && (
+            <div>
+              <p>Arquivo selecionado: {file.name}</p>
+              <p>Tamanho: {file.size} bytes</p>
+            </div>
+          )}
+          <button type="submit">Enviar</button>
+        </Grid>
+        <Grid item xs={7} sx={{ pt: 3 }}>
+          <FormControl component="fieldset" variant="standard">
+            <FormLabel component="legend">Interresses</FormLabel>
+            <FormGroup sx={{ maxHeight: 500 }}>
+              {content.interestsList.map((interest) => (
+                <div key={interest}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        name="interests"
+                        value={interest}
+                        id={interest}
+                        onChange={handleInterestsChange}
+                      />
+                    }
+                    label={interest}
+                  />
+                </div>
+              ))}
+            </FormGroup>
+          </FormControl>
+        </Grid>
+      </Grid>
     </form>
   );
 };
