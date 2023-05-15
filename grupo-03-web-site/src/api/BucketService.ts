@@ -1,5 +1,5 @@
 'use server'
-import { S3  } from '@aws-sdk/client-s3'
+import { S3 } from '@aws-sdk/client-s3'
 
 export const uploadToS3 = async (fileData: string | undefined, filename: string | undefined) => {
 
@@ -22,7 +22,7 @@ export const uploadToS3 = async (fileData: string | undefined, filename: string 
 
     s3.putObject(uploadParams)
       .then(res => {
-        console.log("File Uploaded with Successfull", res);
+        console.log("File Uploaded with Successfull ", res);
       })
       .catch(ex => {
         console.error("An error occured: ", ex)

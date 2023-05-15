@@ -22,9 +22,9 @@ export const theme = createTheme({
 });
 
 export const ButtonFinish = styled(Button)({
-  position: "absolute",
-  top: "655px",
-  right: "330px",
+  // position: "absolute",
+  // top: "655px",
+  // right: "330px",
 });
 
 export const Stepper = styled(MobileStepper)({
@@ -47,3 +47,4 @@ export const Section = styled(Container)({
   alignItems: "center",
   position: "relative",
 });
+

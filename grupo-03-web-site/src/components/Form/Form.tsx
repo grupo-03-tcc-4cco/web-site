@@ -3,7 +3,6 @@ import { useState } from "react";
 import content from "../../../public/data/Form";
 import TextField from "@mui/material/TextField";
 import {
-  Button,
   Checkbox,
   FormControl,
   FormControlLabel,
@@ -87,10 +86,11 @@ const Form = () => {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files[0];
-    setFile(file);
-    console.log("File selected:", file);
-    // Aqui você pode fazer algo com o arquivo, como enviar para um servidor
+    const file = e.target.files?.[0];
+    if (file) {
+      setFile(file);
+      console.log("File selected:", file);
+    }
   };
   
   const uploadFile = (file: File | null) => {
