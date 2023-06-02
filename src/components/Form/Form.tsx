@@ -45,6 +45,8 @@ const Form = () => {
     profession: "",
   });
 
+  const [file, setFile] = useState<File | null>(null);
+
   const handleChange = (event: any) => {
     const { name, value } = event.target;
 
@@ -79,8 +81,6 @@ const Form = () => {
     const formEntity = formValuesToFormEntity(values);
     saveUserFromForm(formEntity);
   };
-
-  const [file, setFile] = useState<File | null>(null);
 
   const handleDrop = (e: React.DragEvent<HTMLInputElement>) => {
     e.preventDefault();
