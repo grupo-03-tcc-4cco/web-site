@@ -13,9 +13,8 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import { uploadToS3 } from '../../api/BucketService'
-import { saveUserFromForm } from '../../api/DatabaseService'
-
+import { uploadToS3 } from "../../api/BucketService";
+import { saveUserFromForm } from "../../api/DatabaseService";
 
 export interface FormValues {
   email: string;
@@ -105,7 +104,7 @@ const Form = () => {
       console.log("File selected:", file);
     }
   };
-  
+
   const uploadFile = (file: File | null) => {
     const reader = new FileReader();
     reader.readAsText(file!, "utf-8");
@@ -116,19 +115,21 @@ const Form = () => {
   const formValuesToFormEntity = (formValues: FormValues): FormEntity => {
     let genderId = content.genderList.indexOf(formValues.gender) + 1;
 
-    let educationId = content.educationalLevel.indexOf(formValues.education) + 1;
+    let educationId =
+      content.educationalLevel.indexOf(formValues.education) + 1;
 
-    let professionId = content.professionsList.indexOf(formValues.profession) + 1;
-    
+    let professionId =
+      content.professionsList.indexOf(formValues.profession) + 1;
+
     return {
-        email: formValues.email,
-        age: formValues.age,
-        gender: genderId,
-        education: educationId,
-        interests: formValues.interests,
-        profession: professionId,
-      };
-  }
+      email: formValues.email,
+      age: formValues.age,
+      gender: genderId,
+      education: educationId,
+      interests: formValues.interests,
+      profession: professionId,
+    };
+  };
 
   return (
     <form onSubmit={handleSubmit}>

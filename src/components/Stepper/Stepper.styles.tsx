@@ -47,4 +47,3 @@ export const Section = styled(Container)({
   alignItems: "center",
   position: "relative",
 });
-
