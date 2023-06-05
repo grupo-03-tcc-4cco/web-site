@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { createTheme, styled } from "@mui/material/styles";
 import Image from "next/image";

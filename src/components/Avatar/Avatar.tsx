@@ -8,9 +8,8 @@ import {
   Icons,
   NameAndAge,
   Section,
-  Triangle,
 } from "./Avatar.styles";
-
+import React from "react";
 function stringAvatar(name: string) {
   return {
     children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,

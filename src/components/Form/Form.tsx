@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { useState } from "react";
 import content from "../../../public/data/Form";
 import TextField from "@mui/material/TextField";
@@ -113,12 +114,12 @@ const Form = () => {
   };
 
   const formValuesToFormEntity = (formValues: FormValues): FormEntity => {
-    let genderId = content.genderList.indexOf(formValues.gender) + 1;
+    const genderId = content.genderList.indexOf(formValues.gender) + 1;
 
-    let educationId =
+    const educationId =
       content.educationalLevel.indexOf(formValues.education) + 1;
 
-    let professionId =
+    const professionId =
       content.professionsList.indexOf(formValues.profession) + 1;
 
     return {
