@@ -13,14 +13,25 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
+import { uploadToS3 } from "../../api/BucketService";
+import { saveUserFromForm } from "../../api/DatabaseService";
 
-interface FormValues {
+export interface FormValues {
   email: string;
   age: number;
   gender: string;
   education: string;
   interests: string[];
   profession: string;
+}
+
+export interface FormEntity {
+  email: string;
+  age: number;
+  gender: number | undefined;
+  education: number | undefined;
+  interests: string[];
+  profession: number | undefined;
 }
 
 const Form = () => {
@@ -32,6 +43,8 @@ const Form = () => {
     interests: [],
     profession: "",
   });
+
+  const [file, setFile] = useState<File | null>(null);
 
   const handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -61,12 +74,12 @@ const Form = () => {
     setValues({ ...values, interests: updatedInterests });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(values);
+    uploadFile(file);
+    const formEntity = formValuesToFormEntity(values);
+    saveUserFromForm(formEntity);
   };
-
-  const [file, setFile] = useState<File | null>(null);
 
   const handleDrop = (e: React.DragEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -89,8 +102,33 @@ const Form = () => {
     if (file) {
       setFile(file);
       console.log("File selected:", file);
-      // Aqui você pode fazer algo com o arquivo, como enviar para um servidor
     }
+  };
+
+  const uploadFile = (file: File | null) => {
+    const reader = new FileReader();
+    reader.readAsText(file!, "utf-8");
+    const fileContent = reader.result?.toString();
+    uploadToS3(fileContent, file?.name);
+  };
+
+  const formValuesToFormEntity = (formValues: FormValues): FormEntity => {
+    let genderId = content.genderList.indexOf(formValues.gender) + 1;
+
+    let educationId =
+      content.educationalLevel.indexOf(formValues.education) + 1;
+
+    let professionId =
+      content.professionsList.indexOf(formValues.profession) + 1;
+
+    return {
+      email: formValues.email,
+      age: formValues.age,
+      gender: genderId,
+      education: educationId,
+      interests: formValues.interests,
+      profession: professionId,
+    };
   };
 
   return (
