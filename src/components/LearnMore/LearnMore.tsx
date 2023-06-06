@@ -1,13 +1,10 @@
 "use client";
 import React from "react";
 import { Box, Button } from "@mui/material";
-import { Container, IWantToHelp } from "./LearnMore.styles";
-import content from "../../../../public/data/LernMore";
-import AboutUs from "../../../components/AboutUs/AboutUs";
-import {
-  SectionSubtitle,
-  SectionTitle,
-} from "../../../components/AboutUs/AboutUs.style";
+import { Container, IWantToHelp } from "./LearnMore.style";
+import content from "../../../public/data/LernMore";
+import AboutUs from "../AboutUs/AboutUs";
+import { SectionSubtitle, SectionTitle } from "../AboutUs/AboutUs.style";
 
 export default function LearnMore() {
   return (
