@@ -14,8 +14,6 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import { uploadToS3 } from "../../api/BucketService";
-import { saveUserFromForm } from "../../api/DatabaseService";
 
 export interface FormValues {
   email: string;
@@ -78,8 +76,8 @@ const Form = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     uploadFile(file);
-    const formEntity = formValuesToFormEntity(values);
-    saveUserFromForm(formEntity);
+    // const formEntity = formValuesToFormEntity(values);
+    // saveUserFromForm(formEntity);
   };
 
   const handleDrop = (e: React.DragEvent<HTMLInputElement>) => {
@@ -109,8 +107,8 @@ const Form = () => {
   const uploadFile = (file: File | null) => {
     const reader = new FileReader();
     reader.readAsText(file!, "utf-8");
-    const fileContent = reader.result?.toString();
-    uploadToS3(fileContent, file?.name);
+    // const fileContent = reader.result?.toString();
+    // uploadToS3(fileContent, file?.name);
   };
 
   const formValuesToFormEntity = (formValues: FormValues): FormEntity => {
