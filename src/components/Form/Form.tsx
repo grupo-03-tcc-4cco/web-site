@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useState } from "react";
 import content from "../../../public/data/Form";
 import TextField from "@mui/material/TextField";
@@ -76,8 +75,6 @@ const Form = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     uploadFile(file);
-    // const formEntity = formValuesToFormEntity(values);
-    // saveUserFromForm(formEntity);
   };
 
   const handleDrop = (e: React.DragEvent<HTMLInputElement>) => {
@@ -85,7 +82,6 @@ const Form = () => {
     const file = e.dataTransfer.files[0];
     setFile(file);
     console.log("File dropped:", file);
-    // Aqui você pode fazer algo com o arquivo, como enviar para um servidor
   };
 
   const handleDragOver = (e: React.DragEvent<HTMLInputElement>) => {
