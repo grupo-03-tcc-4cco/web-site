@@ -1,3 +1,4 @@
+import React from "react";
 import { Buttons } from "../HomePage/HomePage.styles";
 import { Group } from "./GroupButtons.style";
 

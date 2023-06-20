@@ -12,6 +12,7 @@ import {
 import logo from "../../../public/image/logo.png";
 import content from "../../../public/data/HomePage";
 import GroupButtons from "../GroupButtons/GroupButtons";
+import React from "react";
 
 export default function HomePage2() {
   return (
