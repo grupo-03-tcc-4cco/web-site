@@ -20,24 +20,27 @@ export const theme = createTheme({
   },
 });
 
-export const ButtonFinish = styled(Button)({
-  // position: "absolute",
-  // top: "655px",
-  // right: "330px",
-});
+export const ButtonFinish = styled(Button)({});
 
 export const Stepper = styled(MobileStepper)({
   position: "static",
   maxWidth: 400,
   flexGrow: 1,
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
 });
 
 export const StepContent = styled(Box)({
   margin: "20px",
-  height: "85vh",
+  height: "100%",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  // textAlign: "center",
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
 });
 
 export const Section = styled(Container)({
@@ -45,4 +48,9 @@ export const Section = styled(Container)({
   flexDirection: "column",
   alignItems: "center",
   position: "relative",
+  paddingBottom: theme.spacing(15),
+  [theme.breakpoints.down("md")]: {
+    padding: theme.spacing(15, 0),
+    width: "100%",
+  },
 });

@@ -35,25 +35,52 @@ export default function DotsMobileStepper() {
         </Back>
       </Link>
       <StepContent>
-        <Typography variant="h5" m={2}>
+        <Typography
+          variant="h5"
+          m={2}
+          sx={{ [theme.breakpoints.down("md")]: { display: "none" } }}
+        >
           {steps[activeStep].title}
         </Typography>
         {/* <Box> */}
-        <Typography maxWidth={550} mb={2}>
+        <Typography
+          maxWidth={550}
+          mb={2}
+          sx={{
+            [theme.breakpoints.down("md")]: { maxWidth: 300 },
+          }}
+        >
           {steps[activeStep].firstText}
         </Typography>
-        <Typography maxWidth={550} mb={2}>
+        <Typography
+          maxWidth={550}
+          mb={2}
+          sx={{
+            [theme.breakpoints.down("md")]: { maxWidth: 300 },
+          }}
+        >
           {steps[activeStep].secondText}
         </Typography>
         <Image priority {...steps[activeStep].image1} />
-        <Typography maxWidth={550} my={2}>
+        <Typography
+          maxWidth={550}
+          my={2}
+          sx={{
+            [theme.breakpoints.down("md")]: { maxWidth: 300 },
+          }}
+        >
           {steps[activeStep].thirdText}
         </Typography>
         <Image priority {...steps[activeStep].image2} />
-        <Typography maxWidth={550} my={2}>
+        <Typography
+          maxWidth={550}
+          my={2}
+          sx={{
+            [theme.breakpoints.down("md")]: { maxWidth: 300 },
+          }}
+        >
           {steps[activeStep].fourthText}
         </Typography>
-        {/* </Box> */}
       </StepContent>
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Stepper
@@ -93,11 +120,32 @@ export default function DotsMobileStepper() {
             </Button>
           }
         />
-        <Link href="/formulario">
-          <ButtonFinish disabled={activeStep === maxSteps - 1 ? false : true}>
-            finalizar
-          </ButtonFinish>
-        </Link>
+      </Box>
+      <Link href="/formulario">
+        <ButtonFinish
+          sx={{
+            [theme.breakpoints.down("md")]: {
+              display: "none",
+            },
+          }}
+          variant="contained"
+          disabled={activeStep === maxSteps - 1 ? false : true}
+        >
+          finalizar
+        </ButtonFinish>
+      </Link>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Typography align="center">
+          Para nos ajudar, pedimos que faça os passo a passo por um dispositivo
+          desktop. Obrigado!
+        </Typography>
       </Box>
     </Section>
   );

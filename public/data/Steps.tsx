@@ -3,16 +3,13 @@ import image1 from "../image/image1.png";
 import image2 from "../image/image2.png";
 import image3 from "../image/image3.png";
 import image4 from "../image/image4.png";
-import image5 from "../image/image5.png";
 import image6 from "../image/image6.png";
-import image7 from "../image/image7.png";
 import image8 from "../image/image8.png";
-import image9 from "../image/image9.png";
-import image10 from "../image/image10.png";
 import image11 from "../image/image11.png";
 import image12 from "../image/image12.png";
 import image13 from "../image/image13.png";
 import image14 from "../image/image14.png";
+import image15 from "../image/image15.png";
 
 const steps = [
   {
@@ -29,8 +26,8 @@ const steps = [
     image1: {
       alt: "",
       src: image1,
-      width: 304,
-      height: 361,
+      width: 443,
+      height: 492,
     },
     image2: {
       alt: "",
@@ -48,13 +45,13 @@ const steps = [
     image1: {
       alt: "",
       src: image2,
-      width: 399,
-      height: 361,
+      width: 730,
+      height: 390,
     },
     image2: {
       alt: "",
       src: image3,
-      width: 399,
+      width: 500,
       height: 111,
     },
   },
@@ -68,14 +65,14 @@ const steps = [
     image1: {
       alt: "",
       src: image4,
-      width: 545,
-      height: 101,
+      width: 500,
+      height: 111,
     },
     image2: {
       alt: "",
-      src: image2,
-      width: 399,
-      height: 111,
+      src: image6,
+      width: 463,
+      height: 335,
     },
   },
   {
@@ -87,9 +84,9 @@ const steps = [
     fourthText: "10. Clique em “OK” no final do aba.",
     image1: {
       alt: "",
-      src: image10,
-      width: 442,
-      height: 137,
+      src: image8,
+      width: 500,
+      height: 111,
     },
     image2: {
       alt: "",
@@ -108,15 +105,15 @@ const steps = [
     fourthText: "",
     image1: {
       alt: "",
-      src: image8,
-      width: 442,
-      height: 137,
+      src: image11,
+      width: 500,
+      height: 111,
     },
     image2: {
       alt: "",
-      src: image9,
-      width: 458,
-      height: 190,
+      src: image12,
+      width: 645,
+      height: 284,
     },
   },
   {
@@ -128,9 +125,9 @@ const steps = [
     fourthText: "",
     image1: {
       alt: "",
-      src: image12,
-      width: 442,
-      height: 372,
+      src: image13,
+      width: 636,
+      height: 535,
     },
     image2: {
       alt: "",
@@ -147,15 +144,15 @@ const steps = [
     fourthText: "",
     image1: {
       alt: "",
-      src: image13,
-      width: 442,
-      height: 372,
+      src: image14,
+      width: 593,
+      height: 251,
     },
     image2: {
       alt: "",
-      src: image14,
-      width: 514,
-      height: 166,
+      src: image15,
+      width: 594,
+      height: 187,
     },
   },
 ];
