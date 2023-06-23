@@ -9,10 +9,16 @@ export const Container = styled(Box)({
   flexDirection: "column",
   alignItems: "center",
   position: "relative",
+  [theme.breakpoints.down("md")]: {
+    height: "100%",
+  },
 });
 
 export const IWantToHelp = styled(Box)({
   maxWidth: 1100,
   width: "100%",
   display: "flex",
+  [theme.breakpoints.down("md")]: {
+    margin: theme.spacing(0, 0, 4, 5),
+  },
 });

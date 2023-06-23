@@ -21,9 +21,15 @@ export const theme = createTheme({
 
 export const Section = styled(Box)({
   display: "flex",
+  flexWrap: "wrap",
   width: "50%",
   justifyContent: "space-between",
   marginBottom: theme.spacing(20),
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    justifyContent: "space-evenly",
+    marginBottom: theme.spacing(10),
+  },
 });
 
 export const Container = styled(Box)({
@@ -31,12 +37,17 @@ export const Container = styled(Box)({
   flexDirection: "column",
   alignItems: "center",
   position: "relative",
+  marginBottom: theme.spacing(2),
 });
 
 export const AvatarMui = styled(Avatar)({
   width: 150,
   height: 150,
   fontSize: "50px",
+  [theme.breakpoints.down("md")]: {
+    width: 75,
+    height: 75,
+  },
 });
 
 export const NameAndAge = styled(Typography)({
@@ -49,15 +60,4 @@ export const Icons = styled(Box)({
   justifyContent: "center",
 });
 
-export const Triangle = styled(Box)({
-  width: 0,
-  height: 0,
-  borderTop: "40px solid red",
-  borderRight: "40px solid transparent",
-  position: "absolute",
-  transform: "rotate(135deg)",
-  top: "100px",
-  left: "100px",
-});
-
-export default { Section, Container, AvatarMui, NameAndAge, Icons, Triangle };
+export default { Section, Container, AvatarMui, NameAndAge, Icons };
