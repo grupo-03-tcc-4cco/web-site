@@ -31,11 +31,12 @@ export const LeftGrid = styled(Grid)({
 });
 
 export const RightGrid = styled(Grid)({
-  height: "100%",
+  height: "100vh",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   [theme.breakpoints.down("md")]: {
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
   },
