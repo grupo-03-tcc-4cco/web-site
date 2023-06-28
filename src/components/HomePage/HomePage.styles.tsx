@@ -47,7 +47,7 @@ export const HomeTitle = styled(Typography)({
   fontSize: "62px",
   marginBottom: theme.spacing(5.5),
   [theme.breakpoints.down("lg")]: {
-    // marginTop: theme.spacing(30),
+    marginTop: theme.spacing(5),
     fontSize: "55px",
   },
   [theme.breakpoints.down("md")]: {
