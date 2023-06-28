@@ -31,7 +31,7 @@ export const LeftGrid = styled(Grid)({
 });
 
 export const RightGrid = styled(Grid)({
-  height: "100vh",
+  height: "100%",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
