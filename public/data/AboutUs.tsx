@@ -33,13 +33,7 @@ const team = [
 const text = {
   sectionTitle: `Somos alunos de Ciência da Computação na faculdade SPTech e
   precisamos da sua ajuda para realizar nosso TCC`,
-  sectionSubtitle: `Nosso projeto envolve a elaboração de um modelo de Machine Learning de
-  recomendação personalizada de vídeo do YouTube para usuários com base em
-  sobre seus interesses e preferências, analisando seu
-  visualize e compare com suas escolhas. Para desenvolver nosso
-  modelar e criar um banco de dados relevante, precisamos coletar dados de
-  usuários reais para tornar a IA mais realista e fornecer métricas
-  preciso para o nosso projeto.`,
+  sectionSubtitle: `Nosso projeto envolve a elaboração de um modelo de Machine Learning de recomendação personalizada de vídeos do YouTube para usuários, com base em seus interesses e preferências, analisando seu comportamento de visualização e comparando-o com suas escolhas. Para desenvolver nosso modelo e criar um banco de dados relevante, precisamos coletar dados de usuários reais para tornar a IA mais realista e fornecer métricas precisas para o nosso projeto.`,
   buttonHref: "/learn-more",
 };
 

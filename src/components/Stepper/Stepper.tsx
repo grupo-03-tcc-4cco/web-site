@@ -140,10 +140,13 @@ export default function DotsMobileStepper() {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
+          [theme.breakpoints.up("md")]: {
+            display: "none",
+          },
         }}
       >
         <Typography align="center">
-          Para nos ajudar, pedimos que faça os passo a passo por um dispositivo
+          Para nos ajudar, pedimos que faça o passo a passo por um dispositivo
           desktop. Obrigado!
         </Typography>
       </Box>

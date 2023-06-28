@@ -47,6 +47,7 @@ export const HomeTitle = styled(Typography)({
   fontSize: "62px",
   marginBottom: theme.spacing(5.5),
   [theme.breakpoints.down("lg")]: {
+    marginTop: theme.spacing(30),
     fontSize: "55px",
   },
   [theme.breakpoints.down("md")]: {
@@ -86,7 +87,7 @@ export const LogoImage = styled(Image)({
 export const Buttons = styled(Button)({
   width: 239,
   height: 53,
-  margin: "0 1rem 0 0",
+  margin: "0 1rem 5rem 0",
   [theme.breakpoints.down("sm")]: {
     fontSize: "12px",
   },

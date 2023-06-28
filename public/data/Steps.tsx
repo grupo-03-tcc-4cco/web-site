@@ -5,6 +5,7 @@ import image3 from "../image/image3.png";
 import image4 from "../image/image4.png";
 import image6 from "../image/image6.png";
 import image8 from "../image/image8.png";
+import image9 from "../image/image9.png";
 import image11 from "../image/image11.png";
 import image12 from "../image/image12.png";
 import image13 from "../image/image13.png";
@@ -90,7 +91,7 @@ const steps = [
     },
     image2: {
       alt: "",
-      src: image11,
+      src: image9,
       width: 285,
       height: 322,
     },
@@ -118,7 +119,7 @@ const steps = [
   },
   {
     title: "Tutorial Extração de Dados",
-    firstText: `13. Em “Frequência” marque “Exportar uma vez. Em “Tipo de arquivo” selecione “.zip” e em “Tamanho do arquivo” selecione “1 GB”. 
+    firstText: `13. Em “Frequência” marque “Exportar uma vez". Em “Tipo de arquivo” selecione “.zip” e em “Tamanho do arquivo” selecione “1 GB”. 
       Em seguida, clique em “Criar exportação” no final da aba.`,
     secondText: "",
     thirdText: "",
